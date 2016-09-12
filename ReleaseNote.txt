@@ -1,0 +1,4 @@
+SCalc v0.1
+* Basic Calulator Structure
+* Only One Integer Operation at a time
+* SFX and Portable versions for windows
