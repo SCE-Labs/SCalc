@@ -17,13 +17,13 @@ CXXFLAGS      = -pipe -fno-keep-inline-dllexport -g -std=gnu++11 -frtti -Wall -W
 INCPATH       = -I..\Source -I. -IC:\Qt\Qt5.7.0\5.7\mingw53_32\include -IC:\Qt\Qt5.7.0\5.7\mingw53_32\include\QtWidgets -IC:\Qt\Qt5.7.0\5.7\mingw53_32\include\QtGui -IC:\Qt\Qt5.7.0\5.7\mingw53_32\include\QtANGLE -IC:\Qt\Qt5.7.0\5.7\mingw53_32\include\QtCore -Idebug -IC:\Qt\Qt5.7.0\5.7\mingw53_32\mkspecs\win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-subsystem,windows -mthreads
-LIBS        =        -lmingw32 -LC:\Qt\Qt5.7.0\5.7\mingw53_32\lib C:\Qt\Qt5.7.0\5.7\mingw53_32\lib\libqtmaind.a -LC:\utils\postgresql\pgsql\lib -LC:\utils\my_sql\my_sql\lib -lshell32 C:\Qt\Qt5.7.0\5.7\mingw53_32\lib\libQt5Widgetsd.a C:\Qt\Qt5.7.0\5.7\mingw53_32\lib\libQt5Guid.a C:\Qt\Qt5.7.0\5.7\mingw53_32\lib\libQt5Cored.a 
+LIBS        =        -lmingw32 -LC:\Qt\Qt5.7.0\5.7\mingw53_32\lib C:\Qt\Qt5.7.0\5.7\mingw53_32\lib\libqtmaind.a -LC:\utils\postgresql\pgsql\lib -LC:\utils\my_sql\my_sql\lib -lshell32 C:\Qt\Qt5.7.0\5.7\mingw53_32\lib\libQt5Widgetsd.a C:\Qt\Qt5.7.0\5.7\mingw53_32\lib\libQt5Guid.a C:\Qt\Qt5.7.0\5.7\mingw53_32\lib\libQt5Cored.a debug\SCalc_res.o 
 QMAKE         = C:\Qt\Qt5.7.0\5.7\mingw53_32\bin\qmake.exe
 IDC           = idc
 IDL           = midl
 ZIP           = zip -r -9
 DEF_FILE      = 
-RES_FILE      = 
+RES_FILE      = debug\SCalc_res.o
 COPY          = copy /y
 SED           = $(QMAKE) -install sed
 COPY_FILE     = copy /y
@@ -61,8 +61,11 @@ DESTDIR_TARGET = debug\SCalc.exe
 first: all
 all: Makefile.Debug  $(DESTDIR_TARGET)
 
-$(DESTDIR_TARGET):  $(OBJECTS) 
+$(DESTDIR_TARGET):  $(OBJECTS) debug/SCalc_res.o
 	$(LINKER) $(LFLAGS) -o $(DESTDIR_TARGET) $(OBJECTS)  $(LIBS)
+
+debug/SCalc_res.o: ../Source/SCalc.rc
+	windres -i ..\Source\SCalc.rc -o debug\SCalc_res.o --include-dir=./../Source $(DEFINES)
 
 qmake: FORCE
 	@$(QMAKE) -spec win32-g++ -o Makefile.Debug ..\Source\SCalc.pro
@@ -74,6 +77,7 @@ dist:
 
 clean: compiler_clean 
 	-$(DEL_FILE) debug\main.o debug\mainwindow.o debug\moc_mainwindow.o
+	-$(DEL_FILE) debug\SCalc_res.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash

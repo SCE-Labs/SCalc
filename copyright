@@ -1,0 +1,17 @@
+Copyright (C) 2016 Satakshi Computing and Electronic Laboratories,. <http://scel.satakshi.in>
+Everyone is permitted to copy and distribute copies of this Application, modification is allowed only if you distribute this original copyright
+document along with the application.
+
+All rights Reserved @ SCE Labs <satakshi.india@gmail.com> 
+Software is provided as is without any guarantee, for Stable release please check: SCE Labs Webpage<http://scel.satakshi.in>
+And for latest release check: Github Page <https://sce-labs.github.io/SCalc/>
+
+Author: Purnendu Kumar <purnenduk90@gmail.com>
+
+Language: C++
+
+Tools Used:
+IDE: QT Creator 4.1 <https://www.qt.io/ide>
+Platform: QT 5.7 <https://www.qt.io>
+Installer SFX: WinRAR (Rar-labs) <http://www.rarlab.com>
+Doc Generation: Doxygen <http://www.stack.nl/~dimitri/doxygen>

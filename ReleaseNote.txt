@@ -1,4 +1,6 @@
-SCalc v0.1
-* Basic Calulator Structure
-* Only One Integer Operation at a time
-* SFX and Portable versions for windows
+#SCalc v0.1
+--Simple Calculator
+	* Basic Calulator Structure (300*400)
+	* +, -, *, /, %, ^, inv functions for Doubles
+	* two lines display
+	* SFX installer and Portable versions for windows
