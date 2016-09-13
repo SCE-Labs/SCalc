@@ -21,5 +21,8 @@ $RECYCLE.BIN/
 # Debugfiles
 build-SCalc-Desktop_Qt_5_7_0_MinGW_32bit/debug/
 
-# Deployfiles
-build-SCalc-Desktop_Qt_5_7_0_MinGW_32bit/Deploy/
+# releasefiles
+build-SCalc-Desktop_Qt_5_7_0_MinGW_32bit/release/
+
+# binary
+binary/
